@@ -1,18 +1,23 @@
-/*
- * Write a function that joins the contents of conceptList together
- * into one String, concepts, with each list item separated from
- * the previous by a comma.
- *
- * To implement this we'll create a joinList function which will take 
- * in any array of strings return a comma-separated string.
- *
- * Note: We can NOT use the built-in Array join function.
- */
+const conceptList = ["gists", "types", "operators", "iteration", "problem solving"]; //concept list array stored in variable
 
-// Write our function (we must define it too!) below
-// ...
+
+const joinList = function(array) {
+  let result = ''; //variable result for empty string
+  for (let i = 0; i < array.length; i++) { //loop through array
+    result += array[i]; //add current item to the result
+    if (i < array.length - 1) { 
+      result += ', '; //add comma and space if not last item
+    }
+  }
+  return result; // return concatenated string
+}
 
 // Test / Driver Code below...
-const conceptList = ["gists", "types", "operators", "iteration", "problem solving"];
-const concepts = joinList(conceptList);
-console.log(`Today I learned about ${concepts}.`);
+const concepts = joinList(conceptList); //new variable concept: call joinList function with conceptList as argument
+
+console.log(`Today I learned about`, concepts);
+
+//first time i did this i used array.join which is not the point of the challenge
+//function joinList(array) {
+// return array.join(', ');
+// }
